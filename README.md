@@ -1,4 +1,4 @@
-# tfc_random_pet
+# TFC Random Pet
 
 This repository reads the output from of a different statefile using terraform_remote_state  
 
@@ -17,6 +17,8 @@ Official documentation: https://www.terraform.io/language/state/remote-state-dat
       name = "random_pet"               <-- your workspace
     }
 ```    
+
+## Terraform ClI
 - run terraform init
 ```
 terraform init
@@ -33,3 +35,14 @@ terraform apply
 ```
 the_petname_other_repo = "prompt-newt"
 ```
+
+## Terraform Cloud
+
+- add this repository to you TFC as a workspace example tfc_random_pet
+- give the correct privileges on the other TFC workspace that the tfc_random_pet workspace is allowed to view this state file
+    - Go to the workspace which statefile you should be able to read
+    - Go to settings -> General
+    - Go to remote state sharing and add the workspace that should have this privilege  
+![](media/2022-03-02-08-31-10.png)  
+- Run a plan and apply in your workspace tfc_random_pet and it should give you the output of the random_pet
+![](media/2022-03-02-08-32-58.png)  
